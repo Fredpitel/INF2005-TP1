@@ -8,23 +8,37 @@
     </head>
     <body>
     	<header>
-    	<div>
     		<h1>Snack-bar chez Raymond</h1>
-    	</div>
     	</header>
     	
-    	<section>
-    		<div id="commande">
-    			<h2>Commande en ligne</h2>
-    			<hr>
-    		</div>
+    	<section id="commande">
+			<h2>Commande en ligne</h2>
+			<hr>
+    	</section>
+    	
+    	<section id="panier">
+			<div id="titrePanier"><div id="labelPanier">Panier</div></div>
+			<div id="items"><br>
+				<div id="listeItems"></div>
+				<div id="taxes"><hr>
+					<label>TPS:</label>
+					<label id="TPS">0.00$</label><br>
+					<label>TVQ:</label>
+					<label id="TVQ">0.00$</label>
+				</div>
+			</div>
+			<div id="total">
+				<label id="labelTotal">Total:</label>
+				<label id="montantTotal">0.00$</label>
+			</div>
     	</section>
     	
     	<section>
 			<h3>Pâtes</h3>
 			<div class="menuItem">
-				<div class="itemName">Spaghetti</div>
-				<input type="number" min="0" value="0" class="nbItem"/><br>
+				<form>
+					<div class="itemName">Spaghetti</div>
+					<input type="number" min="0" value="0" class="nbItem"/><br>
 					<div class="garnitures">
 						<label class="granitureName">Sauce à la viande</label>
 						<input name="radio1" type="radio" checked="checked">
@@ -33,10 +47,12 @@
 						<input name="radio1" type="radio">
 						<label>10.99$</label>
 					</div>
-				<br>
+					<div class="bouton"><input type="button" value="Ajouter"></div>
+				</form><br>
 				
-				<div class="itemName">Lasagne gratinée</div>
-				<input type="number" min="0" value="0" class="nbItem"/><br>
+				<form>
+					<div class="itemName">Lasagne gratinée</div>
+					<input type="number" min="0" value="0"  class="nbItem"/><br>
 					<div class="garnitures">
 						<div class="granitureName">Sauce à la viande</div>
 						<input name="radio2" type="radio" checked="checked">
@@ -48,10 +64,12 @@
 						<input type="checkbox">
 						<label>2.00$</label>
 					</div>
-				<br>
+					<div class="bouton"><input type="button" value="Ajouter"></div>					
+				</form><br>
 				
-				<div class="itemName">Linguini</div>
-				<input type="number" min="0" value="0" class="nbItem"/>
+				<form>
+					<div class="itemName">Linguini</div>
+					<input type="number" min="0" value="0" class="nbItem"/>
 					<div class="garnitures">
 						<div class="granitureName">Sauce rosée</div>
 						<input name="radio3" type="radio" checked="checked">
@@ -60,11 +78,16 @@
 						<input name="radio3" type="radio">
 						<label>19.99$</label><br>
 					</div>
+					<div class="bouton"><input type="button" value="Ajouter"></div>
+				</form>						
 		 	</div>
     	</section>
     	<section>
     		<div>
     			<h3>Pizza</h3>
+    			<div class="menuItem">
+    			
+    			</div>
     		</div>
     	</section>
     	<section>

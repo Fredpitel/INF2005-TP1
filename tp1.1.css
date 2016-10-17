@@ -35,6 +35,61 @@ h3 {
 	text-align: center;
 }
 
+#panier {
+	height: 300px;
+	width: 350px;	
+	float: right;
+	padding: 2% 2% 0% 0%;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+#titrePanier {
+	height: 10%;
+	width: 100%;
+	text-align: center;
+	border: 2px solid black;
+}
+
+#labelPanier {
+	display: block;
+    font-size: 18px;
+	padding-top: 2%;	
+}
+
+#items {
+	width: 100%;
+	height: auto;
+	margin-top: -2px;
+	border: 2px solid black;
+}
+
+#taxes {
+	text-align: right;
+	padding: 0% 5% 2% 5%;
+}
+
+#total {
+	width: 100%;
+	height: 10%;
+	margin-top: -2px;
+	border: 2px solid black;
+}
+
+#labelTotal {
+	display: inline-block;
+	float: left;
+	font-size: 18px;
+	padding: 2% 0% 0% 5%;
+}
+
+#montantTotal {
+	display: inline-block;
+	float: right;
+	text-align: right;
+	padding: 2% 5% 0% 0%;
+}
+
+
 .nbItem{
 	width: 30px;
 	text-align: center;
@@ -57,4 +112,8 @@ h3 {
 .granitureName {
     width: 26%;
     display: inline-block;
+}
+
+.bouton {
+	padding-left: 30%;
 }
