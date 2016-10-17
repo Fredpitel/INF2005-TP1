@@ -63,6 +63,24 @@ h3 {
 	border: 2px solid black;
 }
 
+#listeItems {
+	padding: 2% 5% 0% 5%;
+}
+
+.itemListe {
+	display: inline-block;
+	float: left;
+}
+
+.quantiteItem {
+	display: inline-block;
+	float: right;
+}
+
+.prixItem {
+	float: right;
+}
+
 #taxes {
 	text-align: right;
 	padding: 0% 5% 2% 5%;
