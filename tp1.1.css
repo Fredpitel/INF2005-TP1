@@ -1,0 +1,60 @@
+header {
+    height:100px;
+    background: lightblue;
+    text-align: center;
+    border: thin solid black;
+    background-image: url("snackbar.jpg");
+    background-repeat: no-repeat;
+    background-size:20% 100%;
+}
+
+body {
+    margin: auto;
+    margin-top: 0px;
+    font-family: arial, sans-serif;
+    color: #000;
+    width: 1000px;
+}
+
+h1 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 30px;
+}
+    
+h2 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 24px;
+}
+
+h3 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 18px;
+}
+
+#commande {
+	text-align: center;
+}
+
+.nbItem{
+	width: 30px;
+	text-align: center;
+}
+
+.menuItem {
+	width: 100%;
+}
+
+.itemName {
+	width: 30%;
+    display: inline-block;
+    border-bottom: 1px solid black;
+}
+
+.garnitures {
+	padding-left: 50px;
+}
+
+.granitureName {
+    width: 26%;
+    display: inline-block;
+}
