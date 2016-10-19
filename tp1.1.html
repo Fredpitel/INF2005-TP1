@@ -28,8 +28,8 @@
 						<h3>Heures d'ouvertures</h3>
 						<div>Lundi - Mercredi: 6:00 - 22:00</div>
 						<div>Jeudi - Vendredi: 6:00 - 23:00</div>
-						<div>Samedi: 6:00h - 1:00</div>
-						<div>Dimanche: 8:00h - 23:00h</div>
+						<div>Samedi: 6:00 - 1:00</div>
+						<div>Dimanche: 8:00 - 23:00</div>
 			    	</aside>
 			    	
 			    	<section>
@@ -100,46 +100,41 @@
 					    	</div>
 					    	<div>
 				    			<h3>Pizza</h3>
-				    			<div class="menuItem">
-									<div class="itemName">Spaghetti</div>
-									<input id="nbSpag" type="number" min="0" value="0" class="nbItem"/><br>
-									<div class="garnitures">
-										<label class="granitureName">Sauce à la viande</label>
-										<input id="sauceSpag" name="radio1" type="radio" checked="checked">
-										<label>12.99$</label><br>
-										<label class="granitureName">Végétarien</label>
-										<input name="radio1" type="radio">
-										<label>10.99$</label>
-									</div>
-									<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterSpaghetti()"></div><br>
-									
-									<div class="itemName">Lasagne gratinée</div>
-									<input id="nbLasagne" type="number" min="0" value="0"  class="nbItem"/><br>
-									<div class="garnitures">
-										<div class="granitureName">Sauce à la viande</div>
-										<input id="sauceLasagne" name="radio2" type="radio" checked="checked">
-										<label>14.99$</label><br>
-										<div class="granitureName">Végétarienne</div>
-										<input name="radio2" type="radio">
-										<label>12.99$</label><br>
-										<div class="granitureName">Extra pepperoni</div>
-										<input id="extraLasagne" type="checkbox">
-										<label>1.99$</label>
-									</div>
-									<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterLasagne()"></div><br>
-									
-									<div class="itemName">Linguini</div>
-									<input id="nbLin" type="number" min="0" value="0" class="nbItem"/>
-									<div class="garnitures">
-										<div class="granitureName">Sauce rosée</div>
-										<input id="sauceLin" name="radio3" type="radio" checked="checked">
-										<label>13.99$</label><br>
-										<div class="granitureName">Aux fruits de mers</div>
-										<input name="radio3" type="radio">
-										<label>19.99$</label><br>
-									</div>
-									<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterLinguini()"></div>					
-						 		</div>
+								<table>
+									<tr>
+										<th></th><th>Personnelle</th><th>Petite</th><th>Moyenne</th><th>Large</th><th>Extra-large</th><th></th>
+									</tr>
+									<tr>
+										<th></th><th>10po</th><th>12po</th><th>14po</th><th>16po</th><th>18po</th><th></th>
+									</tr>
+									<tr>
+										<td>Pepperonni et fromage</td>
+										<td><label>5.99 $</label><input name="pepFro" type="radio" checked="checked" /></td>
+										<td><label>6.99 $</label><input name="pepFro" type="radio" /></td>
+										<td><label>7.99 $</label><input name="pepFro" type="radio" /></td>
+										<td><label>8.99 $</label><input name="pepFro" type="radio" /></td>
+										<td><label>9.99 $</label><input name="pepFro" type="radio" /></td>
+										<td colspan="6"><input id="nbPepFro" type="number" min="0" value="0" class="nbItem"/><input type="button" value="Ajouter" onclick="ajouterPizza()"></td>
+									</tr>
+									<tr>
+										<td>Toute garnie</td>
+										<td><label>6.99 $</label><input name="touteGarnie" type="radio" checked="checked" /></td>
+										<td><label>7.99 $</label><input name="touteGarnie" type="radio" /></td>
+										<td><label>8.99 $</label><input name="touteGarnie" type="radio" /></td>
+										<td><label>9.99 $</label><input name="touteGarnie" type="radio" /></td>
+										<td><label>10.99 $</label><input name="touteGarnie" type="radio" /></td>
+										<td colspan="6"><input id="nbTouteGarnie" type="number" min="0" value="0" class="nbItem"/><input type="button" value="Ajouter" onclick="ajouterPizza()"></td>
+									</tr>
+									<tr>
+										<td>Végétarienne</td>
+										<td><label>4.99 $</label><input name="vege" type="radio" checked="checked" /></td>
+										<td><label>5.99 $</label><input name="vege" type="radio" /></td>
+										<td><label>6.99 $</label><input name="vege" type="radio" /></td>
+										<td><label>7.99 $</label><input name="vege" type="radio" /></td>
+										<td><label>8.99 $</label><input name="vege" type="radio" /></td>
+										<td colspan="6"><input id="nbVege" type="number" min="0" value="0" class="nbItem"/><input type="button" value="Ajouter" onclick="ajouterPizza()"></td>
+									</tr>
+								</table>				
 					    	</div>
 					    	<div>
 				    			<h3>Hamburger</h3>
@@ -152,6 +147,10 @@
 				</div>
 			</div>
 	    </div>
-		<footer>Copyright Frédéric Pitel, Francis Beaudoin 2016</footer>
+		<footer>
+			<div id="copyright">
+				© 2016 FRÉDÉRIC PITEL, FRANCIS BEAUDOIN TOUS DROITS RÉSERVÉS
+			</div>
+		</footer>
     </body>
 </html>
