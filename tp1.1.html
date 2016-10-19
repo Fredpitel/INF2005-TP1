@@ -12,85 +12,146 @@
     		<h1>Snack-bar chez Raymond</h1>
     	</header>
     	
-    	<section id="commande">
-			<h2>Commande en ligne</h2>
-			<hr>
-    	</section>
-    	
-    	<section id="panier">
-			<div id="titrePanier"><div id="labelPanier">Panier</div></div>
-			<div id="items"><br>
-				<div id="listeItems"></div>
-				<div id="taxes"><hr>
-					<label>Sous-total:</label>
-					<label id="sousTotal">0.00$</label><br>					
-					<label>TPS:</label>
-					<label id="TPS">0.00$</label><br>
-					<label>TVQ:</label>
-					<label id="TVQ">0.00$</label>
+	    <div id="container3">
+	    	<div id="container2">
+	    		<div id="container1">
+	    			
+			    	<aside id="asideLeft">
+			    		<img src="snackbar.jpg">
+			    		
+			    		<h3>Coordonnées:</h3>
+			    		<div>Snack-bar chez Raymond</div>
+			    		<div>145 du Président-Kennedy</div>
+						<div>Montreal, QC H2X</div>
+						<div>(514) 555-5555</div><br>
+						
+						<h3>Heures d'ouvertures</h3>
+						<div>Lundi - Mercredi: 6:00 - 22:00</div>
+						<div>Jeudi - Vendredi: 6:00 - 23:00</div>
+						<div>Samedi: 6:00h - 1:00</div>
+						<div>Dimanche: 8:00h - 23:00h</div>
+			    	</aside>
+			    	
+			    	<section>
+						<h2>Commande en ligne</h2><hr>
+			    		
+			    		<div id="menu">
+					    	<div id="panier">
+								<div id="titrePanier"><div id="labelPanier">Panier</div></div>
+								<div id="items"><br>
+									<div id="listeItems"></div>
+									<div id="taxes"><hr>
+										<label>Sous-total:</label>
+										<label id="sousTotal">0.00$</label><br>					
+										<label>TPS:</label>
+										<label id="TPS">0.00$</label><br>
+										<label>TVQ:</label>
+										<label id="TVQ">0.00$</label>
+									</div>
+								</div>
+								<div id="total">
+									<label id="labelTotal">Total:</label>
+									<label id="montantTotal">0.00$</label>
+								</div>
+					    	</div>
+					    	
+					    	<div>
+								<h3>Pâtes</h3>
+								<div class="menuItem">
+									<div class="itemName">Spaghetti</div>
+									<input id="nbSpag" type="number" min="0" value="0" class="nbItem"/><br>
+									<div class="garnitures">
+										<label class="granitureName">Sauce à la viande</label>
+										<input id="sauceSpag" name="radio1" type="radio" checked="checked">
+										<label>12.99$</label><br>
+										<label class="granitureName">Végétarien</label>
+										<input name="radio1" type="radio">
+										<label>10.99$</label>
+									</div>
+									<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterSpaghetti()"></div><br>
+									
+									<div class="itemName">Lasagne gratinée</div>
+									<input id="nbLasagne" type="number" min="0" value="0"  class="nbItem"/><br>
+									<div class="garnitures">
+										<div class="granitureName">Sauce à la viande</div>
+										<input id="sauceLasagne" name="radio2" type="radio" checked="checked">
+										<label>14.99$</label><br>
+										<div class="granitureName">Végétarienne</div>
+										<input name="radio2" type="radio">
+										<label>12.99$</label><br>
+										<div class="granitureName">Extra pepperoni</div>
+										<input id="extraLasagne" type="checkbox">
+										<label>1.99$</label>
+									</div>
+									<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterLasagne()"></div><br>
+									
+									<div class="itemName">Linguini</div>
+									<input id="nbLin" type="number" min="0" value="0" class="nbItem"/>
+									<div class="garnitures">
+										<div class="granitureName">Sauce rosée</div>
+										<input id="sauceLin" name="radio3" type="radio" checked="checked">
+										<label>13.99$</label><br>
+										<div class="granitureName">Aux fruits de mers</div>
+										<input name="radio3" type="radio">
+										<label>19.99$</label><br>
+									</div>
+									<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterLinguini()"></div>					
+							 	</div>
+					    	</div>
+					    	<div>
+				    			<h3>Pizza</h3>
+				    			<div class="menuItem">
+									<div class="itemName">Spaghetti</div>
+									<input id="nbSpag" type="number" min="0" value="0" class="nbItem"/><br>
+									<div class="garnitures">
+										<label class="granitureName">Sauce à la viande</label>
+										<input id="sauceSpag" name="radio1" type="radio" checked="checked">
+										<label>12.99$</label><br>
+										<label class="granitureName">Végétarien</label>
+										<input name="radio1" type="radio">
+										<label>10.99$</label>
+									</div>
+									<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterSpaghetti()"></div><br>
+									
+									<div class="itemName">Lasagne gratinée</div>
+									<input id="nbLasagne" type="number" min="0" value="0"  class="nbItem"/><br>
+									<div class="garnitures">
+										<div class="granitureName">Sauce à la viande</div>
+										<input id="sauceLasagne" name="radio2" type="radio" checked="checked">
+										<label>14.99$</label><br>
+										<div class="granitureName">Végétarienne</div>
+										<input name="radio2" type="radio">
+										<label>12.99$</label><br>
+										<div class="granitureName">Extra pepperoni</div>
+										<input id="extraLasagne" type="checkbox">
+										<label>1.99$</label>
+									</div>
+									<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterLasagne()"></div><br>
+									
+									<div class="itemName">Linguini</div>
+									<input id="nbLin" type="number" min="0" value="0" class="nbItem"/>
+									<div class="garnitures">
+										<div class="granitureName">Sauce rosée</div>
+										<input id="sauceLin" name="radio3" type="radio" checked="checked">
+										<label>13.99$</label><br>
+										<div class="granitureName">Aux fruits de mers</div>
+										<input name="radio3" type="radio">
+										<label>19.99$</label><br>
+									</div>
+									<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterLinguini()"></div>					
+						 		</div>
+					    	</div>
+					    	<div>
+				    			<h3>Hamburger</h3>
+					    	</div>
+					    </div>
+			    	</section>
+			    	
+			    	<aside id="asideRight"></aside>
+			    	
 				</div>
 			</div>
-			<div id="total">
-				<label id="labelTotal">Total:</label>
-				<label id="montantTotal">0.00$</label>
-			</div>
-    	</section>
-    	
-    	<section>
-			<h3>Pâtes</h3>
-			<div class="menuItem">
-				<div class="itemName">Spaghetti</div>
-				<input id="nbSpag" type="number" min="0" value="0" class="nbItem"/><br>
-				<div class="garnitures">
-					<label class="granitureName">Sauce à la viande</label>
-					<input id="sauceSpag" name="radio1" type="radio" checked="checked">
-					<label>12.99$</label><br>
-					<label class="granitureName">Végétarien</label>
-					<input name="radio1" type="radio">
-					<label>10.99$</label>
-				</div>
-				<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterSpaghetti()"></div><br>
-				
-				<div class="itemName">Lasagne gratinée</div>
-				<input id="nbLasagne" type="number" min="0" value="0"  class="nbItem"/><br>
-				<div class="garnitures">
-					<div class="granitureName">Sauce à la viande</div>
-					<input id="sauceLasagne" name="radio2" type="radio" checked="checked">
-					<label>14.99$</label><br>
-					<div class="granitureName">Végétarienne</div>
-					<input name="radio2" type="radio">
-					<label>12.99$</label><br>
-					<div class="granitureName">Extra pepperoni</div>
-					<input id="extraLasagne" type="checkbox">
-					<label>1.99$</label>
-				</div>
-				<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterLasagne()"></div><br>
-				
-				<div class="itemName">Linguini</div>
-				<input id="nbLin" type="number" min="0" value="0" class="nbItem"/>
-				<div class="garnitures">
-					<div class="granitureName">Sauce rosée</div>
-					<input id="sauceLin" name="radio3" type="radio" checked="checked">
-					<label>13.99$</label><br>
-					<div class="granitureName">Aux fruits de mers</div>
-					<input name="radio3" type="radio">
-					<label>19.99$</label><br>
-				</div>
-				<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterLinguini()"></div>					
-		 	</div>
-    	</section>
-    	<section>
-    		<div>
-    			<h3>Pizza</h3>
-    			<div class="menuItem">
-    			
-    			</div>
-    		</div>
-    	</section>
-    	<section>
-    		<div>
-    			<h3>Hamburger</h3>
-    		</div>
-    	</section>
+	    </div>
+		<footer>Copyright Frédéric Pitel, Francis Beaudoin 2016</footer>
     </body>
 </html>

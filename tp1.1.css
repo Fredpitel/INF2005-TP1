@@ -1,29 +1,86 @@
 header {
     height:100px;
-    background: lightblue;
-    text-align: center;
-    border: thin solid black;
-    background-image: url("snackbar.jpg");
-    background-repeat: no-repeat;
-    background-size:20% 100%;
+    width: 100%;
+    background: #5D6D7E;
+    text-align: center; 
+	display: table;
 }
 
 body {
-    margin: auto;
+	margin: 0px;
     margin-top: 0px;
     font-family: arial, sans-serif;
     color: #000;
-    width: 1000px;
+}
+
+#container3 {
+    float: left;
+    width: 100%;
+    background: #616A6B;
+    overflow: hidden;
+    position: relative;
+}
+
+#container2 {
+    float: left;
+    width: 100%;
+    position: relative;
+    right: 15%;
+    background: #D5DBDB;
+}
+
+#container1 {
+    float: left;
+    width: 100%;
+    position: relative;
+    right: 70%;
+    background: #616A6B;
+}
+
+#asideLeft {
+	margin-top: 0.5%;
+	float: left;
+	width: 14%;
+	position: relative;
+	left: 85.5%;
+	overflow: hidden;
+}
+
+#asideRight {
+	margin-top: 0.5%;
+	float: left;
+	width: 14%;
+	position: relative;
+	left: 88.5%;
+	overflow: hidden;
+}
+
+section {
+	float: left;
+	width: 68%;
+	position: relative;
+	left: 87%;
+	overflow: hidden;
+}
+
+footer {
+	float: left;
+    height:100px;
+    width: 100%;
+    background: #5D6D7E;
 }
 
 h1 {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 30px;
+    vertical-align: middle;
+    display: table-cell;
 }
     
 h2 {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 24px;
+    text-align: center;
 }
 
 h3 {
@@ -31,15 +88,15 @@ h3 {
     font-size: 18px;
 }
 
-#commande {
-	text-align: center;
+#menu {
+	padding: 0% 10% 0% 10%;
 }
 
 #panier {
 	height: 300px;
 	width: 350px;	
 	float: right;
-	padding: 2% 2% 0% 0%;
+	padding-top: 2%;
 	font-family: Helvetica, Arial, sans-serif;
 }
 
