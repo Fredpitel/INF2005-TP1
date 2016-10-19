@@ -62,40 +62,40 @@
 									<input id="nbSpag" type="number" min="0" value="0" class="nbItem"/><br>
 									<div class="garnitures">
 										<label class="granitureName">Sauce à la viande</label>
-										<input id="sauceSpag" name="radio1" type="radio" checked="checked">
+										<input id="sauceSpagViande" name="radio1" type="radio" checked="checked" label="Spaghetti Sauce à la viande" prix="12.99">
 										<label>12.99$</label><br>
 										<label class="granitureName">Végétarien</label>
-										<input name="radio1" type="radio">
+										<input id="sauceSpagVege" name="radio1" type="radio" label="Spaghetti Végétarien" prix="10.99">
 										<label>10.99$</label>
 									</div>
-									<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterSpaghetti()"></div><br>
+									<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterPates('sauceSpagViande,sauceSpagVege,nbSpag')"/></div><br>
 									
 									<div class="itemName">Lasagne gratinée</div>
 									<input id="nbLasagne" type="number" min="0" value="0"  class="nbItem"/><br>
 									<div class="garnitures">
 										<div class="granitureName">Sauce à la viande</div>
-										<input id="sauceLasagne" name="radio2" type="radio" checked="checked">
+										<input id="sauceLasagneViande" name="radio2" type="radio" checked="checked" label="Lasagne sauce à la viande" prix="14.99">
 										<label>14.99$</label><br>
 										<div class="granitureName">Végétarienne</div>
-										<input name="radio2" type="radio">
+										<input id="sauceLasagneVege" name="radio2" type="radio" label="Lasagne végétarienne" prix="12.99">
 										<label>12.99$</label><br>
 										<div class="granitureName">Extra pepperoni</div>
 										<input id="extraLasagne" type="checkbox">
 										<label>1.99$</label>
 									</div>
-									<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterLasagne()"></div><br>
+									<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterPates('sauceLasagneViande,sauceLasagneVege,nbLasagne,extraLasagne')"></div><br>
 									
 									<div class="itemName">Linguini</div>
 									<input id="nbLin" type="number" min="0" value="0" class="nbItem"/>
 									<div class="garnitures">
 										<div class="granitureName">Sauce rosée</div>
-										<input id="sauceLin" name="radio3" type="radio" checked="checked">
+										<input id="sauceLinRosee" name="radio3" type="radio" checked="checked" label="Linguini sauce rosée" prix="13.99">
 										<label>13.99$</label><br>
 										<div class="granitureName">Aux fruits de mers</div>
-										<input name="radio3" type="radio">
+										<input id="sauceLinFruitDeMer" name="radio3" type="radio" label="Linguini aux fruits de mer" prix="19.99">
 										<label>19.99$</label><br>
 									</div>
-									<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterLinguini()"></div>					
+									<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterPates('sauceLinRosee,sauceLinFruitDeMer,nbLin')"></div>					
 							 	</div>
 					    	</div>
 					    	<div>

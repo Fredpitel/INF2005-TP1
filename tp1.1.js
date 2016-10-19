@@ -6,75 +6,31 @@ document.addEventListener('DOMContentLoaded', function () {
 	panier = document.getElementById("listeItems");
 });
 
-function ajouterSpaghetti() {
-	var nbSpag = document.getElementById("nbSpag").value;
-	var sauceSpag = document.getElementById("sauceSpag").checked;
-	var prixSpag;
-	var spag;
+function ajouterPates(idElements) {
+	var elements = idElements.split(",");
+	var nbPates = document.getElementById(elements[2]).value;
+	var radios = [elements[0], elements[1]];
+	var label;
+	var prixItem;
 	
-	if(nbSpag > 0) {
-		if(sauceSpag){
-			spag = "Spaghetti sauve à la viande";
-			prixSpag = 12.99;
-		} else {
-			spag = "Spaghetti végétarien";
-			prixSpag = 10.99;
+	if(nbPates > 0){
+		for(var i = 0; i < radios.length; i++){
+			var radio = document.getElementById(radios[i]);
+			if(radio.checked){
+				label = radio.getAttribute("label");
+				prixItem = radio.getAttribute("prix");
+				break;			
+			}
 		}
-		itemsPanier.push({item:spag, quantite:nbSpag, prix:(nbSpag * prixSpag)});
-		
+		itemsPanier.push({item:label, quantite:nbPates, prix:(prixItem*nbPates)});
+		if(elements.length === 4){
+			if(document.getElementById(elements[3]).checked){
+				itemsPanier.push({item:"Extra pepperoni", quantite:nbPates, prix:(1.99 * nbPates)});
+			}
+		}	
 		mettrePanierAJour();
+		document.getElementById(elements[2]).value = 0;
 	}
-	
-	document.getElementById("nbSpag").value = 0;				 	
-}
-
-function ajouterLasagne() {
-	var nbLasagne = document.getElementById("nbLasagne").value;
-	var sauceLasage = document.getElementById("sauceLasagne").checked;
-	var extra = document.getElementById("extraLasagne").checked;
-	var prixLasagne;
-	var lasagne;
-	
-	if(nbLasagne > 0) {
-		if(sauceLasage){
-			lasagne = "Lasagne sauve à la viande";
-			prixLasagne = 14.99;
-		} else {
-			lasagne = "Lasagne végétarienne";
-			prixLasagne = 12.99;
-		}
-		itemsPanier.push({item:lasagne, quantite:nbLasagne, prix:(nbLasagne * prixLasagne)});
-		if(extra){
-			itemsPanier.push({item:"Extra pepperoni", quantite:nbLasagne, prix:(1.99 * nbLasagne)});
-		}
-		
-		mettrePanierAJour();
-	}
-	
-	document.getElementById("nbLasagne").value = 0;
-	document.getElementById("extraLasagne").checked = false;			 	
-}
-
-function ajouterLinguini() {
-	var nbLin = document.getElementById("nbLin").value;
-	var sauceLin = document.getElementById("sauceLin").checked;
-	var prixLin;
-	var lin;
-	
-	if(nbLin > 0) {
-		if(sauceLin){
-			lin = "Linguini sauce rosée";
-			prixLin = 13.99;
-		} else {
-			lin = "Linguini aux fruits de mer";
-			prixLin = 19.99;
-		}
-		itemsPanier.push({item:lin, quantite:nbLin, prix:(nbLin * prixLin)});
-		
-		mettrePanierAJour();
-	}				 	
-	
-	nbLin = document.getElementById("nbLin").value = 0;
 }
 
 function mettrePanierAJour(){
