@@ -55,12 +55,12 @@
 										<label id="montantTotal">0.00 $</label>
 									</div>
 						    	</div>
-					    		<input class="boutonPanier" type="button" value="Commander" onclick="location.href='infos.html'"/>
-					    		<input class="boutonPanier" type="button" value="Vider panier" onclick="viderPanier()"/>
+					    		<input id="boutonCommander" class="boutonPanier" type="button" value="Commander" onclick="afficherInfos()"/>
+					    		<input id="boutonVider" class="boutonPanier" type="button" value="Vider panier" onclick="viderPanier()"/>
 					    	</div>
 					    	
-					    	<div>
-								<h3>Pâtes</h3>
+					    	<div id ="sectionMenu">
+								<h3>PÂTES</h3>
 								<div>
 									<div class="itemName">Spaghetti</div>
 									<label>Qté: </label><input id="nbSpag" type="number" min="0" value="0" class="nbItem"/><br>
@@ -85,7 +85,7 @@
 										<input id="sauceLasagneVege" name="radio2" type="radio" label="Lasagne végétarienne" prix="12.99"/><br>
 										<div class="granitureName">Avec pepperoni</div>
 										<label>1.99 $</label>
-										<input id="SurplusLasagne" type="checkbox"/>
+										<input id="pepperoni" type="checkbox"/>
 									</div>
 									<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterItem('nbLasagne,sauceLasagneViande,sauceLasagneVege')"/></div><br>
 									
@@ -100,24 +100,23 @@
 										<input id="sauceLinFruitDeMer" name="radio3" type="radio" label="Linguini aux fruits de mer" prix="19.99"><br>
 									</div>
 									<div class="bouton"><input type="button" value="Ajouter" onclick="ajouterItem('nbLin,sauceLinRosee,sauceLinFruitDeMer')"/></div>					
-							 	</div>
-					    	</div>
-					    	<div>
-				    			<h3>Pizza</h3>
-								<table class="pizza">
+							 </div><br><br>
+
+				    			<h3>PIZZA</h3>
+								<table id="tablePizza">
 									<tr>
-										<th></th><th>Personnelle</th><th>Petite</th><th>Moyenne</th><th>Large</th><th>Surplus-large</th><th></th>
+										<th></th><th>Personnelle</th><th>Petite</th><th>Moyenne</th><th>Large</th><th>Extra-large</th><th></th>
 									</tr>
 									<tr>
 										<th></th><th>10po</th><th>12po</th><th>14po</th><th>16po</th><th>18po</th><th></th>
 									</tr>
 									<tr>
 										<td>Pepperoni et fromage</td>
-										<td><label>5.99 $</label><input id="persoPepFro" name="pepFro" type="radio" checked="checked" label="Pizza perso. Pepperoni et fromage" prix="5.99"/></td>
-										<td><label>6.99 $</label><input id="petitePepFro" name="pepFro" type="radio" label="Pizza petite Pepperoni et fromage" prix="6.99"/></td>
-										<td><label>7.99 $</label><input id="moyennePepFro" name="pepFro" type="radio" label="Pizza moyenne Pepperoni et fromage" prix="7.99"/></td>
-										<td><label>8.99 $</label><input id="largePepFro" name="pepFro" type="radio" label="Pizza large Pepperoni et fromage" prix="8.99"/></td>
-										<td><label>9.99 $</label><input id="xlargePepFro" name="pepFro" type="radio" label="Pizza x-large Pepperoni et fromage" prix="9.99"/></td>
+										<td><label>5.99 $</label><input id="persoPepFro" name="pepFro" type="radio" checked="checked" label="Pizza perso. Pep. et fromage" prix="5.99"/></td>
+										<td><label>6.99 $</label><input id="petitePepFro" name="pepFro" type="radio" label="Pizza petite Pep. et fromage" prix="6.99"/></td>
+										<td><label>7.99 $</label><input id="moyennePepFro" name="pepFro" type="radio" label="Pizza moyenne Pep. et fromage" prix="7.99"/></td>
+										<td><label>8.99 $</label><input id="largePepFro" name="pepFro" type="radio" label="Pizza large Pep. et fromage" prix="8.99"/></td>
+										<td><label>9.99 $</label><input id="xlargePepFro" name="pepFro" type="radio" label="Pizza x-large Pep. et fromage" prix="9.99"/></td>
 										<td colspan="6"><label>Qté: </label><input id="nbPepFro" type="number" min="0" value="0" class="nbItem"/><input type="button" value="Ajouter" onclick="ajouterItem('nbPepFro,persoPepFro,petitePepFro,moyennePepFro,largePepFro,xlargePepFro')"></td>
 									</tr>
 									<tr>
@@ -131,24 +130,27 @@
 									</tr>
 									<tr>
 										<td>Végétarienne</td>
-										<td><label>4.99 $</label><input name="vege" type="radio" checked="checked" /></td>
-										<td><label>5.99 $</label><input name="vege" type="radio" /></td>
-										<td><label>6.99 $</label><input name="vege" type="radio" /></td>
-										<td><label>7.99 $</label><input name="vege" type="radio" /></td>
-										<td><label>8.99 $</label><input name="vege" type="radio" /></td>
-										<td colspan="6"><label>Qté: </label><input id="nbVege" type="number" min="0" value="0" class="nbItem"/><input type="button" value="Ajouter" onclick="ajouterItem()"></td>
+										<td><label>4.99 $</label><input id="persoVege" name="vege" type="radio" checked="checked" label="Pizza perso. Végétarienne" prix="4.99"/></td>
+										<td><label>5.99 $</label><input id="petiteVege" name="vege" type="radio" label="Pizza petite Végétarienne" prix="4.99"/></td>
+										<td><label>6.99 $</label><input id="moyenneVege" name="vege" type="radio" label="Pizza moyenne Végétarienne" prix="4.99"/></td>
+										<td><label>7.99 $</label><input id="largeVege" name="vege" type="radio" label="Pizza large Végétarienne" prix="4.99"/></td>
+										<td><label>8.99 $</label><input  id="xlargeVege" name="vege" type="radio" label="Pizza x-large Végétarienne" prix="4.99"/></td>
+										<td colspan="6"><label>Qté: </label><input id="nbVege" type="number" min="0" value="0" class="nbItem"/><input type="button" value="Ajouter" onclick="ajouterItem('nbVege,persoVege,petiteVege,moyenneVege,largeVege,xlargeVege')"></td>
 									</tr>
-								</table>				
-					    	</div>
-					    	<div>
-					    		<h3>Hamburger</h3>
+								</table><br><br>			
+
+					    		<h3>HAMBURGER</h3>
 					    		<div>
 				    				<div class="itemName">Hamburger</div>
 				    				<label>3.99 $</label><input id="hamburger" name="burger" type="radio" checked="checked" label="Hamburger" prix="3.99"/><br><br>
 				    				<div class="itemName">Cheeseburger</div>
 				    				<label>4.99 $</label><input id="cheeseburger" name="burger" type="radio" label="Cheeseburger" prix="4.99"/><br><br>
-				    				<div><label>Avec bacon 0.99 $</label><input id="bacon" type="checkbox"></div><br>
-				    				<label>Condiments:</label>
+				    				<div class="garnitures">
+				    					<div class="granitureName">Avec bacon</div>
+				    					<label>0.99 $</label>
+				    					<input id="bacon" type="checkbox">
+				    				</div><br>
+				    				<label>Condiments:</label><br>
 					    			<table>
 					    				<tr>
 					    					<td><label>Ketchup</label><input id="ketchup" type="checkbox" class="condiment"></td>
@@ -168,14 +170,57 @@
 					    			</table>
 					    		</div>
 					    	</div>
-					    </div><br><hr>
+					    	
+					    	<div id="sectionFormulaire">
+						    	<form id="formulaire">
+						    		<table id="tableFormulaire">
+							    		<tr>
+							    			<td>Nom:</td>
+							    			<td><input id="nom" class="textInput" type="text"/></td>
+							  				<td>Prénom:</td>
+							  				<td><input id="prenom" class="textInput" type="text"/></td>
+							  			</tr>
+							  			<tr>
+								  			<td>Adresse 1:</td>
+								  			<td colspan="3"><input id="adresse1" class="textInput" type="text"/></td>							  				
+							  			</tr>
+										<tr>
+								  			<td>Adresse 2:</td>
+								  			<td colspan="3"><input id="adresse2" class="textInput" type="text"/></td>
+							  			</tr>
+							  			<tr>
+							  				<td>Ville:</td>
+							  				<td><input id="ville" class="textInput" type="text"/></td>
+							  				<td>Code Postal:</td>
+							  				<td><input id="codePostal" class="textInput" type="text"/></td>
+							  			</tr>
+										<tr>
+											<td>Numéro de téléphone:</td>
+							  				<td><input id="telephone" class="textInput" type="text"/></td>
+										</tr>
+										<tr>
+											<td></td>
+											<td></td>
+											<td><button type="submit" form="formulaire" onclick="">Confirmer</button></td>
+										</tr>
+						  			</table>
+						    	</form>	
+					    	</div>
+					    </div>
 			    	</section>
 			    	
-			    	<aside id="asideRight"></aside>
-			    	
+			    	<aside id="asideRight">
+			    		<div id="quoteRight">
+			    			<label>"Si t'es du genre à</label><br>
+							<label>surveiller c'que tu manges,</label><br>
+							<label>bin surveilles ta boulette</label><br>
+							<label>a peut s'pousser d'entre les</label><br>
+							<label>deux tranches"</label>
+						</div>
+			    	</aside>
 				</div>
 			</div>
-	    </div>
+		</div>
 		<footer>
 			<div id="copyright">
 				© 2016 FRÉDÉRIC PITEL, FRANCIS BEAUDOIN TOUS DROITS RÉSERVÉS

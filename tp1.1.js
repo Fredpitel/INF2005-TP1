@@ -1,10 +1,4 @@
-var panier;
-var sousTotal = 0.00;
 var itemsPanier = [];
-
-document.addEventListener('DOMContentLoaded', function () {
-	panier = document.getElementById("listeItems");
-});
 
 function ajouterItem(idElements) {
 	var elements = idElements.split(",");
@@ -40,7 +34,7 @@ function ajouterItem(idElements) {
 		
 		itemsPanier.push({item:label, quantite:nbItem, prix:(prixItem*nbItem), condiments:listeCondiments});
 		
-		if((label === "Lasagne sauce à la viande" || label === "Lasagne végétarienne") && document.getElementById("SurplusLasagne").checked){
+		if((label === "Lasagne sauce à la viande" || label === "Lasagne végétarienne") && document.getElementById("pepperoni").checked){
 			itemsPanier.push({item:"Surplus pepperoni", quantite:nbItem, prix:(1.99 * nbItem), condiments:[]});
 		}
 		
@@ -59,7 +53,8 @@ function viderPanier(){
 }
 
 function mettrePanierAJour(){
-	panier.innerHTML = "";
+	var panier = document.getElementById("listeItems");
+	panier.innerHTML = "";	
 	
 	for(var i = 0; i < itemsPanier.length; i++){
 		panier.innerHTML += "<img class=\"croixRouge\" src=\"croixRouge.png\" id=\"" + i + "\" onclick=\"supprimerItem(this)\"></img>" +
@@ -112,4 +107,21 @@ function modififerTaxes(){
 	document.getElementById("TPS").innerHTML = tps + " $";
 	document.getElementById("TVQ").innerHTML = tvq + " $";
 	document.getElementById("montantTotal").innerHTML = total.toFixed(2) + " $";
+}
+
+function afficherInfos() {
+	if(itemsPanier.length > 0){
+		document.getElementById("sectionMenu").innerHTML = "";
+		document.getElementById("sectionFormulaire").style.visibility = "visible";
+		document.getElementById("boutonVider").style.visibility = "hidden";
+		document.getElementById("boutonCommander").style.visibility = "hidden";
+		
+		var croix = document.getElementsByClassName("croixRouge");
+		
+		for(var i = 0; i < croix.length; i++){
+			croix[i].style.visibility = "hidden";
+		}
+	} else {
+		alert("Votre panier est vide.");
+	}
 }

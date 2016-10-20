@@ -8,9 +8,7 @@ header {
 
 body {
 	margin: 0px;
-    margin-top: 0px;
     font-family: arial, sans-serif;
-    color: #000;
 }
 
 #bgAsideRight {
@@ -52,7 +50,6 @@ body {
 	width: 14%;
 	position: relative;
 	left: 88.5%;
-	overflow: hidden;
 }
 
 section {
@@ -78,6 +75,14 @@ footer {
     font-weight: bold;
 }
 
+#quoteRight {
+	padding-top: 140%;
+	padding-bottom: 140%;
+	text-align: center;
+	font-size: 20px;
+    font-style: italic;	
+}
+
 h1 {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 30px;
@@ -94,10 +99,20 @@ h2 {
 h3 {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 18px;
+    text-align: center;
 }
 
 #menu {
-	padding: 0% 7% 0% 7%;
+	padding: 0% 6% 0% 6%;
+}
+
+#sectionFormulaire {
+	width: 66%;
+	visibility: hidden;
+}
+
+#sectionMenu {
+	width: 66%;
 }
 
 #sectionPanier {
@@ -196,8 +211,7 @@ h3 {
 
 .boutonPanier {
 	float: right;
-	margin-top: 2%;
-	margin-left: 2%;
+	margin: 2% 0% 2% 2%;
 }
 
 .nbItem{
@@ -206,7 +220,7 @@ h3 {
 }
 
 .itemName {
-	width: 30%;
+	width: 50%;
     display: inline-block;
     border-bottom: 1px solid black;
 }
@@ -216,19 +230,29 @@ h3 {
 }
 
 .granitureName {
-    width: 26%;
+    width: 46%;
     display: inline-block;
 }
 
 .bouton {
-	padding-left: 30%;
+	padding-left: 50%;
 }
 
-table {
-    border-spacing: 10px;
+#tablePizza {
+    border-spacing: 7px;
 	text-align: center;
 }
 
 .pizza td:first-child {
 	text-align: left;
+}
+
+#tableFormulaire{
+	padding-top: 2%;
+	border-spacing: 10px;
+	text-align: center;
+}
+
+.textInput {
+	width: 100%;
 }
