@@ -6,14 +6,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	panier = document.getElementById("listeItems");
 });
 
-function ajouterPates(idElements) {
+function ajouterItem(idElements) {
 	var elements = idElements.split(",");
-	var nbPates = document.getElementById(elements[2]).value;
-	var radios = [elements[0], elements[1]];
+	var nbItem = document.getElementById(elements[0]).value;
+	var radios = [];
 	var label;
 	var prixItem;
+	var listeCondiments = [];
 	
-	if(nbPates > 0){
+	if(nbItem > 0){
+		for(var i = 1; i < elements.length; i++){
+			radios.push(elements[i]);	
+		}
+		
 		for(var i = 0; i < radios.length; i++){
 			var radio = document.getElementById(radios[i]);
 			if(radio.checked){
@@ -22,15 +27,35 @@ function ajouterPates(idElements) {
 				break;			
 			}
 		}
-		itemsPanier.push({item:label, quantite:nbPates, prix:(prixItem*nbPates)});
-		if(elements.length === 4){
-			if(document.getElementById(elements[3]).checked){
-				itemsPanier.push({item:"Extra pepperoni", quantite:nbPates, prix:(1.99 * nbPates)});
+		
+		if(label === "Hamburger" || label === "Cheeseburger"){
+			var elemCondiments = document.getElementsByClassName('condiment');
+			
+			for(var i = 0; i < elemCondiments.length; i++){
+				if(elemCondiments[i].checked){
+					listeCondiments.push(elemCondiments[i].id);
+				}
 			}
-		}	
+		}
+		
+		itemsPanier.push({item:label, quantite:nbItem, prix:(prixItem*nbItem), condiments:listeCondiments});
+		
+		if((label === "Lasagne sauce à la viande" || label === "Lasagne végétarienne") && document.getElementById("SurplusLasagne").checked){
+			itemsPanier.push({item:"Surplus pepperoni", quantite:nbItem, prix:(1.99 * nbItem), condiments:[]});
+		}
+		
+		if((label === "Hamburger" || label === "Cheeseburger") && document.getElementById("bacon").checked){
+			itemsPanier.push({item:"Surplus bacon", quantite:nbItem, prix:(0.99 * nbItem), condiments:[]});
+		}
+		
 		mettrePanierAJour();
-		document.getElementById(elements[2]).value = 0;
+		document.getElementById(elements[0]).value = 0;
 	}
+}
+
+function viderPanier(){
+	itemsPanier = [];
+	mettrePanierAJour();
 }
 
 function mettrePanierAJour(){
@@ -39,17 +64,31 @@ function mettrePanierAJour(){
 	for(var i = 0; i < itemsPanier.length; i++){
 		panier.innerHTML += "<img class=\"croixRouge\" src=\"croixRouge.png\" id=\"" + i + "\" onclick=\"supprimerItem(this)\"></img>" +
 							"<div class=\"itemListe\">" + itemsPanier[i].item + "</div>" +
-							"<div class=\"quantiteItem\">" + itemsPanier[i].quantite + "</div><br>" +
-							"<div class=\"prixItem\">" + itemsPanier[i].prix + "$</div><br><br>";
+							"<div class=\"quantiteItem\">Qté: " + itemsPanier[i].quantite + "</div><br>";
+		if(itemsPanier[i].item === "Hamburger" || itemsPanier[i].item === "Cheeseburger"){
+			console.log(itemsPanier[i]);			
+			condiments = itemsPanier[i].condiments;
+			if(condiments.length > 0){
+				panier.innerHTML += "<div class=\"condiment\">";
+				for(var j = 0; j < condiments.length - 1; j ++){
+					panier.innerHTML += condiments[j] + ", ";
+				}
+				panier.innerHTML += condiments[condiments.length - 1] + "</div>";
+			}
+		}
+		panier.innerHTML +=	"<div class=\"prixItem\">" + itemsPanier[i].prix + "</div><br><br>";
 	}
 	
 	modifierSousTotal();	
 }
 
 function supprimerItem(item){	
-	if((itemsPanier.length > (parseInt(item.id) + 1)) && (itemsPanier[parseInt(item.id) + 1].item === "Extra pepperoni")){
+	var itemSuivant = (itemsPanier.length > (parseInt(item.id) + 1)) && (itemsPanier[parseInt(item.id) + 1].item);
+	
+	if(itemSuivant === "Surplus pepperoni" || itemSuivant === "Surplus bacon"){
 		itemsPanier.splice(parseInt(item.id) + 1, 1);
 	}
+	
 	itemsPanier.splice(item.id, 1);
 	mettrePanierAJour();
 }
@@ -60,7 +99,7 @@ function modifierSousTotal() {
 	for(var i = 0; i < itemsPanier.length; i++){
 		sousTotal += itemsPanier[i].prix;
 	}
-	document.getElementById("sousTotal").innerHTML = sousTotal.toFixed(2) + "$";
+	document.getElementById("sousTotal").innerHTML = sousTotal.toFixed(2) + " $";
 	
 	modififerTaxes();
 }
@@ -70,7 +109,7 @@ function modififerTaxes(){
 	var tvq = parseFloat(Math.round(sousTotal * 0.09975 * 100) / 100).toFixed(2);
 	var total = parseFloat(sousTotal) + parseFloat(tps) + parseFloat(tvq);
 
-	document.getElementById("TPS").innerHTML = tps + "$";
-	document.getElementById("TVQ").innerHTML = tvq + "$";
-	document.getElementById("montantTotal").innerHTML = total.toFixed(2) + "$";
+	document.getElementById("TPS").innerHTML = tps + " $";
+	document.getElementById("TVQ").innerHTML = tvq + " $";
+	document.getElementById("montantTotal").innerHTML = total.toFixed(2) + " $";
 }
