@@ -111,17 +111,32 @@ function modififerTaxes(){
 
 function afficherInfos() {
 	if(itemsPanier.length > 0){
-		document.getElementById("sectionMenu").innerHTML = "";
-		document.getElementById("sectionFormulaire").style.visibility = "visible";
-		document.getElementById("boutonVider").style.visibility = "hidden";
-		document.getElementById("boutonCommander").style.visibility = "hidden";
+		document.getElementById("sectionMenu").style.display = "none";
+		document.getElementById("sectionFormulaire").style.display = "block";
+		document.getElementById("boutonVider").style.display = "none";
+		document.getElementById("boutonCommander").style.display = "none";
 		
 		var croix = document.getElementsByClassName("croixRouge");
 		
 		for(var i = 0; i < croix.length; i++){
-			croix[i].style.visibility = "hidden";
+			croix[i].style.display = "none";
 		}
 	} else {
 		alert("Votre panier est vide.");
 	}
+}
+
+function afficherItineraire() {
+	var formulaire = document.getElementById("formulaire");
+	var carte = document.getElementById("carte");
+	var itineraire = document.getElementById("itineraire");
+	
+	var adresse = formulaire.elements["adresse1"].value;
+	var codePostal = formulaire.elements["codePostal"].value;
+	var ville = formulaire.elements["ville"].value;
+	
+	var url = "https://www.google.com/maps/embed/v1/directions?key=AIzaSyB4KtAaEWeL1K3db3k4ZXAGsRyLhOJ-9l4&origin=145+du+President-Kennedy,+Montreal,+H2X+3Y7&destination=" + adresse + ",+" + ville + ",+" + codePostal + "&avoid=tolls|highways&mode=driving";
+	carte.src = url;
+	itineraire.style.display = "block";
+	carte.style.display = "block";
 }

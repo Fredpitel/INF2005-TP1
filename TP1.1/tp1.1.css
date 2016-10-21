@@ -108,7 +108,7 @@ h3 {
 
 #sectionFormulaire {
 	width: 66%;
-	visibility: hidden;
+	display: none;
 }
 
 #sectionMenu {
@@ -238,13 +238,17 @@ h3 {
 	padding-left: 50%;
 }
 
-#tablePizza {
+.tableMenu {
     border-spacing: 7px;
 	text-align: center;
 }
 
 .pizza td:first-child {
 	text-align: left;
+}
+
+#condiments {
+	padding-left: 6%;
 }
 
 #tableFormulaire{
@@ -255,4 +259,13 @@ h3 {
 
 .textInput {
 	width: 100%;
+}
+
+#itineraire {
+	display: none;
+}
+
+#carte {
+	display: none;
+	padding: 0% 0% 2% 7%;
 }

@@ -103,7 +103,7 @@
 							 </div><br><br>
 
 				    			<h3>PIZZA</h3>
-								<table id="tablePizza">
+								<table class="tableMenu">
 									<tr>
 										<th></th><th>Personnelle</th><th>Petite</th><th>Moyenne</th><th>Large</th><th>Extra-large</th><th></th>
 									</tr>
@@ -150,25 +150,27 @@
 				    					<label>0.99 $</label>
 				    					<input id="bacon" type="checkbox">
 				    				</div><br>
-				    				<label>Condiments:</label><br>
-					    			<table>
-					    				<tr>
-					    					<td><label>Ketchup</label><input id="ketchup" type="checkbox" class="condiment"></td>
-					    					<td><label>Moutarde</label><input id="moutarde" type="checkbox" class="condiment"></td>
-					    					<td><label>Mayonnaise</label><input id="mayonnaise" type="checkbox" class="condiment"></td>
-					    					<td><label>Relish</label><input id="relish" type="checkbox" class="condiment"></td>
-					    				</tr>
-					    				<tr>
-					    					<td><label>Tomate</label><input id="tomate" type="checkbox" class="condiment"></td>
-					    					<td><label>Laitue</label><input id="laitue" type="checkbox" class="condiment"></td>
-					    					<td><label>Oignon</label><input id="oignon" type="checkbox" class="condiment"></td>
-					    					<td><label>Cornichon</label><input id="cornichon" type="checkbox" class="condiment"></td>
-					    				</tr>
-					    				<tr>
-					    					<td colspan="4"><label>Qté: </label><input id="nbBurger" type="number" min="0" value="0" class="nbItem"/><input type="button" value="Ajouter" onclick="ajouterItem('nbBurger,hamburger,cheeseburger')"></td>
-					    				</tr>
-					    			</table>
-					    		</div>
+				    				<div id="condiments">
+					    				<label>Condiments:</label><br>
+						    			<table class="tableMenu">
+						    				<tr>
+						    					<td><label>Ketchup</label><input id="ketchup" type="checkbox" class="condiment"></td>
+						    					<td><label>Moutarde</label><input id="moutarde" type="checkbox" class="condiment"></td>
+						    					<td><label>Mayonnaise</label><input id="mayonnaise" type="checkbox" class="condiment"></td>
+						    					<td><label>Relish</label><input id="relish" type="checkbox" class="condiment"></td>
+						    				</tr>
+						    				<tr>
+						    					<td><label>Tomate</label><input id="tomate" type="checkbox" class="condiment"></td>
+						    					<td><label>Laitue</label><input id="laitue" type="checkbox" class="condiment"></td>
+						    					<td><label>Oignon</label><input id="oignon" type="checkbox" class="condiment"></td>
+						    					<td><label>Cornichon</label><input id="cornichon" type="checkbox" class="condiment"></td>
+						    				</tr>
+						    				<tr>
+						    					<td colspan="4"><label>Qté: </label><input id="nbBurger" type="number" min="0" value="0" class="nbItem"/><input type="button" value="Ajouter" onclick="ajouterItem('nbBurger,hamburger,cheeseburger')"></td>
+						    				</tr>
+						    			</table>
+						    		</div>
+					    		</div><br><br>
 					    	</div>
 					    	
 					    	<div id="sectionFormulaire">
@@ -176,13 +178,13 @@
 						    		<table id="tableFormulaire">
 							    		<tr>
 							    			<td>Nom:</td>
-							    			<td><input id="nom" class="textInput" type="text"/></td>
+							    			<td><input id="nom" class="textInput" type="text" required/></td>
 							  				<td>Prénom:</td>
-							  				<td><input id="prenom" class="textInput" type="text"/></td>
+							  				<td><input id="prenom" class="textInput" type="text" required/></td>
 							  			</tr>
 							  			<tr>
 								  			<td>Adresse 1:</td>
-								  			<td colspan="3"><input id="adresse1" class="textInput" type="text"/></td>							  				
+								  			<td colspan="3"><input id="adresse1" class="textInput" type="text" required/></td>							  				
 							  			</tr>
 										<tr>
 								  			<td>Adresse 2:</td>
@@ -190,22 +192,24 @@
 							  			</tr>
 							  			<tr>
 							  				<td>Ville:</td>
-							  				<td><input id="ville" class="textInput" type="text"/></td>
+							  				<td><input id="ville" class="textInput" type="text" required/></td>
 							  				<td>Code Postal:</td>
-							  				<td><input id="codePostal" class="textInput" type="text"/></td>
+							  				<td><input id="codePostal" class="textInput" type="text" required/></td>
 							  			</tr>
 										<tr>
 											<td>Numéro de téléphone:</td>
-							  				<td><input id="telephone" class="textInput" type="text"/></td>
+							  				<td><input id="telephone" class="textInput" type="text" required/></td>
 										</tr>
 										<tr>
 											<td></td>
 											<td></td>
-											<td><button type="submit" form="formulaire" onclick="">Confirmer</button></td>
+											<td><input type="button" onclick="afficherItineraire()" value="Confirmer"/></td>
 										</tr>
 						  			</table>
 						    	</form>	
 					    	</div>
+					    	<h2 id="itineraire">Itinéraire:</h2>
+							<iframe id="carte" width="600" height="450" frameborder="0" style="border:0" src=""></iframe>
 					    </div>
 			    	</section>
 			    	
