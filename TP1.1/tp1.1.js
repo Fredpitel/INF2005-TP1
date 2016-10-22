@@ -32,19 +32,62 @@ function ajouterItem(idElements) {
 			}
 		}
 		
-		itemsPanier.push({item:label, quantite:nbItem, prix:(prixItem*nbItem), condiments:listeCondiments});
+		var item = {item:label, quantite:nbItem, prix:(prixItem*nbItem), condiments:listeCondiments, extra: false, prixUnitaire:prixItem};
+		var extra;
 		
 		if((label === "Lasagne sauce à la viande" || label === "Lasagne végétarienne") && document.getElementById("pepperoni").checked){
-			itemsPanier.push({item:"Surplus pepperoni", quantite:nbItem, prix:(1.99 * nbItem), condiments:[]});
+			extra = {item:"Surplus pepperoni", quantite:nbItem, prix:(1.99 * nbItem), condiments:[], extra:false, prixUnitaire:1.99};
+			item.extra = true;
 		}
 		
 		if((label === "Hamburger" || label === "Cheeseburger") && document.getElementById("bacon").checked){
-			itemsPanier.push({item:"Surplus bacon", quantite:nbItem, prix:(0.99 * nbItem), condiments:[]});
+			extra ={item:"Surplus bacon", quantite:nbItem, prix:(0.99 * nbItem), condiments:[], extra:false, prixUnitaire:0.99};
+			item.extra = true;
+		}
+		
+		var index = indexItem(item);
+		
+		if(index === -1){
+			itemsPanier.push(item);
+			if(extra != null){
+				itemsPanier.push(extra);
+			}
+		} else {
+			itemsPanier[index].quantite = parseInt(itemsPanier[index].quantite) + parseInt(nbItem);
+			itemsPanier[index].prix =  itemsPanier[index].prixUnitaire * itemsPanier[index].quantite;
+			if(extra != null){
+				itemsPanier[index + 1].quantite = parseInt(itemsPanier[index + 1].quantite) + parseInt(nbItem);
+				itemsPanier[index + 1].prix =  itemsPanier[index + 1].prixUnitaire * itemsPanier[index + 1].quantite;
+			}
 		}
 		
 		mettrePanierAJour();
 		document.getElementById(elements[0]).value = 0;
 	}
+}
+
+function indexItem(nouvelItem){
+	var res = -1;
+	
+	for (var i = 0; i < itemsPanier.length; i++){
+		 var item = itemsPanier[i];
+		 
+		 if(nouvelItem.item === item.item && nouvelItem.extra === item.extra){
+		 	var condiments = true;
+		 	for (var j = 0; j < item.condiments.length; j++){
+		 		if (item.condiments[j] != nouvelItem.condiments[j]){
+		 			var condiments = false;
+		 			break;
+		 		}
+		 	}
+		 	if(condiments){
+		 		res = i;
+		 		break;
+		 	}
+		 }
+	}
+	
+	return res;
 }
 
 function viderPanier(){
@@ -60,8 +103,7 @@ function mettrePanierAJour(){
 		panier.innerHTML += "<img class=\"croixRouge\" src=\"croixRouge.png\" id=\"" + i + "\" onclick=\"supprimerItem(this)\"></img>" +
 							"<div class=\"itemListe\">" + itemsPanier[i].item + "</div>" +
 							"<div class=\"quantiteItem\">Qté: " + itemsPanier[i].quantite + "</div><br>";
-		if(itemsPanier[i].item === "Hamburger" || itemsPanier[i].item === "Cheeseburger"){
-			console.log(itemsPanier[i]);			
+		if(itemsPanier[i].item === "Hamburger" || itemsPanier[i].item === "Cheeseburger"){		
 			condiments = itemsPanier[i].condiments;
 			if(condiments.length > 0){
 				panier.innerHTML += "<div class=\"condiment\">";
