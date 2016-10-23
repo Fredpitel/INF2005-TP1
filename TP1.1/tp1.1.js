@@ -8,6 +8,8 @@ function ajouterItem(idElements) {
 	var prixItem;
 	var listeCondiments = [];
 	
+	resetTextAreas();
+	
 	if(nbItem > 0){
 		for(var i = 1; i < elements.length; i++){
 			radios.push(elements[i]);	
@@ -54,15 +56,25 @@ function ajouterItem(idElements) {
 			}
 		} else {
 			itemsPanier[index].quantite = parseInt(itemsPanier[index].quantite) + parseInt(nbItem);
-			itemsPanier[index].prix =  itemsPanier[index].prixUnitaire * itemsPanier[index].quantite;
+			itemsPanier[index].prix = (itemsPanier[index].prixUnitaire * itemsPanier[index].quantite).toFixed(2);
 			if(extra != null){
 				itemsPanier[index + 1].quantite = parseInt(itemsPanier[index + 1].quantite) + parseInt(nbItem);
-				itemsPanier[index + 1].prix =  itemsPanier[index + 1].prixUnitaire * itemsPanier[index + 1].quantite;
+				itemsPanier[index + 1].prix = (itemsPanier[index + 1].prixUnitaire * itemsPanier[index + 1].quantite).toFixed(2);
 			}
 		}
 		
 		mettrePanierAJour();
 		document.getElementById(elements[0]).value = 0;
+	} else {
+		document.getElementById(elements[0]).style.borderColor = "red";
+	}
+}
+
+function resetTextAreas(){
+	var textAreas = document.getElementsByClassName("nbItem");
+	
+	for(var i = 0; i < textAreas.length; i++){
+		textAreas[i].style.border = "";
 	}
 }
 
@@ -91,6 +103,7 @@ function indexItem(nouvelItem){
 }
 
 function viderPanier(){
+	resetTextAreas();
 	itemsPanier = [];
 	mettrePanierAJour();
 }
@@ -119,11 +132,19 @@ function mettrePanierAJour(){
 	modifierSousTotal();	
 }
 
-function supprimerItem(item){	
-	var itemSuivant = (itemsPanier.length > (parseInt(item.id) + 1)) && (itemsPanier[parseInt(item.id) + 1].item);
+function supprimerItem(item){
+	resetTextAreas();
 	
-	if(itemSuivant === "Surplus pepperoni" || itemSuivant === "Surplus bacon"){
-		itemsPanier.splice(parseInt(item.id) + 1, 1);
+	if(item.id < itemsPanier.length - 1){
+		var itemSuivant = itemsPanier[(parseInt(item.id) + 1)].item;
+
+		if(itemSuivant === "Surplus pepperoni" || itemSuivant === "Surplus bacon"){
+			itemsPanier.splice(parseInt(item.id) + 1, 1);
+		}
+	}
+	
+	if(itemsPanier[item.id].item === "Surplus pepperoni" || itemsPanier[item.id].item === "Surplus bacon"){
+		itemsPanier[(parseInt(item.id) - 1)].extra = false;
 	}
 	
 	itemsPanier.splice(item.id, 1);
@@ -152,6 +173,8 @@ function modififerTaxes(){
 }
 
 function afficherInfos() {
+	resetTextAreas();
+	
 	if(itemsPanier.length > 0){
 		document.getElementById("sectionMenu").style.display = "none";
 		document.getElementById("sectionFormulaire").style.display = "block";

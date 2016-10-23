@@ -10,17 +10,23 @@ html {
 
 body {
 	height: 100%;
-    font-family: arial, sans-serif;
+	font-family: arial, sans-serif;
+    font-size: 16px;
     margin:0px;
-    background: #616A6B;
+    background: #1985A1;
 }
 
 header {
     height:10%;
     width: 100%;
-    background: #5D6D7E;
+    background: #4C5C68;
     text-align: center; 
 	display: table;
+}
+
+header, #asideLeft, #asideRight, footer {
+	color: #DCDCDD;
+    text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 #asideLeft {
@@ -28,7 +34,7 @@ header {
 	height: auto;
 	float: left;
 	width: 15%;
-	background: #616A6B;
+	background: #1985A1;
 }
 
 #asideRight {
@@ -36,7 +42,7 @@ header {
 	height: auto;
 	float: left;
 	width: 15%;
-	background: #616A6B;
+	background: #1985A1;
 	display: table;
     text-align: center; 
 }
@@ -46,22 +52,32 @@ section {
 	height: auto;
 	float: left;
 	width: 70%;
-	background: #D5DBDB;
-	padding: 0% 5% 1% 5%;
+	background: #DCDCDD;
+	padding: 0% 3% 2% 3%;
 }
 
 footer {
     height: 5%;
     width: 100%;
-    background: #5D6D7E;
+    background: #4C5C68;
     display: table;
     text-align: center; 
 }
 
 #coordonnees {
-	padding-top: 5%;
+	padding-top: 10%;
 	display: table;
 	margin: 0 auto;
+	font-size: 18px;
+}
+
+#blocCoordonnees {
+	display: table;
+	margin: 0 auto;
+}
+
+#imageSnackBar {
+	border: 2px solid black;
 }
 
 #copyright {
@@ -72,28 +88,27 @@ footer {
 }
 
 #quoteRight {
+	padding: 0% 2% 0% 2%;
 	vertical-align: middle;
     display: table-cell;
-	font-size: 20px;
-    font-style: italic;	
+	font-size: 18px;
+    font-style: italic;
+    font-weight: bold;	
 }
 
 h1 {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 30px;
+    font-size: 40px;
     vertical-align: middle;
     display: table-cell;
 }
     
 h2 {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 24px;
+    font-size: 28px;
     text-align: center;
 }
 
 h3 {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
 }
 
@@ -101,11 +116,13 @@ h3 {
 	float: left;
 	width: 66%;
 	display: none;
+	overflow: hidden;
 }
 
 #sectionMenu {
 	float: left;
-	width: 66%
+	width: 66%;
+	overflow: hidden;
 }
 
 #sectionPanier {
@@ -114,17 +131,21 @@ h3 {
 	width: 33%;
 }
 
+#panierAvecBouton, #menu, #carte{
+	display: table;
+	width: 95%;
+	margin: 0 auto;	
+}
+
 #panier {
-	float: right;
-	width: 350px;
-	font-family: Helvetica, Arial, sans-serif;
+	border: 2px solid black;
 }
 
 #titrePanier {
 	width: 100%;
 	text-align: center;
 	display: table;
-	border: 2px solid black;
+	border-bottom: 2px solid black;
 }
 
 #labelPanier {
@@ -137,16 +158,13 @@ h3 {
 #items {
 	width: 100%;
 	height: auto;
-	margin-top: -2px;
-	border: 2px solid black;
+	border-bottom: 2px solid black;
 }
 
 .croixRouge {
-	height: 18px;
-	width: 18px;
-	display: inline-block;
-	float: left;
-	padding-right: 5px;
+	height: 22px;
+	width: 22px;
+	margin-right: 3%;
 }
 
 .croixRouge:hover {
@@ -154,38 +172,27 @@ h3 {
 }
 
 #listeItems {
-	padding: 2% 5% 0% 5%;
+	padding: 2% 3% 0% 3%;
 }
 
-.itemListe {
+.itemListe, .condiment, .croixRouge {
 	display: inline-block;
 	float: left;
 }
 
-.quantiteItem {
+.quantiteItem, .prixItem {
 	display: inline-block;
 	float: right;
-}
-
-.prixItem {
-	float: right;
-}
-
-.condiment {
-	display: inline-block;
-	float: left;
 }
 
 #taxes {
 	text-align: right;
-	padding: 0% 5% 2% 5%;
+	padding: 0% 3% 2% 3%;
 }
 
 #total {
 	display: table;
 	width: 100%;
-	margin-top: -2px;
-	border: 2px solid black;
 }
 
 #labelTotal {
@@ -193,7 +200,7 @@ h3 {
     display: table-cell;
 	float: left;
 	font-size: 18px;
-	padding: 1% 0% 1% 5%;
+	padding: 1% 0% 1% 3%;
 }
 
 #montantTotal {
@@ -201,55 +208,76 @@ h3 {
     display: table-cell;
 	float: right;
 	font-size: 18px;
-	padding: 1% 5% 0% 1%;
+	padding: 1% 3% 0% 1%;
 }
 
-.boutonPanier {
-	float: right;
-	margin: 2% 0% 2% 2%;
-}
-
-.nbItem{
-	width: 30px;
+.boutonsPanier {
+	display: inline-block;
+	margin: 0 auto;
+	width: 50%;
 	text-align: center;
 }
 
+.boutonPanier {
+	font-size: 20px;
+	width: 90%;
+}
+
+#boutonCommander {
+	color: green;
+}
+
+#boutonVider {
+	color: red;
+}
+
+.nbItem{
+	width: 40px;
+	text-align: center;
+	font-size: 18px;
+}
+
 .itemName {
-	width: 50%;
+	width: 85%;
     display: inline-block;
     border-bottom: 1px solid black;
 }
 
-.garnitures {
-	padding-left: 50px;
+#condiments {
+	padding-left: 5%;
 }
 
-.granitureName {
-    width: 46%;
+.garniture {
+    width: 85%;
     display: inline-block;
+    padding-left: 5%;
 }
 
-.bouton {
-	padding-left: 50%;
+.boutonPates {
+	margin-left: 85%;
 }
 
-.tableMenu {
+.boutonPates, .bouton {
+	font-size: 18px;
+}
+
+#tableCondiments, #pizza {
     border-spacing: 7px;
+}
+
+#boutonCondiment, #pizza  {
 	text-align: center;
 }
 
-.pizza td:first-child {
+#pizza td:first-child, #tableCondiments {
 	text-align: left;
-}
-
-#condiments {
-	padding-left: 6%;
 }
 
 #tableFormulaire{
 	padding-top: 2%;
-	border-spacing: 10px;
-	text-align: center;
+	border-spacing: 15px;
+	margin: 0 auto;
+	width: 100%;
 }
 
 .textInput {
@@ -262,8 +290,9 @@ h3 {
 
 #carte {
 	display: none;
+	margin: 0 auto;
 	width: 100%;
 	height: 600px;
-	margin: 0 auto;
 	border: 0;
+	overflow: hidden;
 }
