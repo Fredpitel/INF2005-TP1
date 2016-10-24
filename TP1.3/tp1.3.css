@@ -4,6 +4,10 @@ body {
 	margin: 0;
 }
 
+#conteneur {
+	display: inline-flex;
+}
+
 aside {
 	width: 12%;
 	float: left;
