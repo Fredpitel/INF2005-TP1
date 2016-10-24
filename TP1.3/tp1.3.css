@@ -1,0 +1,105 @@
+body {
+	width: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+}
+
+aside {
+	width: 12%;
+	float: left;
+	background: #3B393A;
+	color: white;
+	padding: 2% 2% 0% 2%;
+	text-align: center;
+}
+
+section {
+	float: left;
+	padding-left: 1%;
+	width: 32%;
+	font-size: 15px;
+}
+
+#portrait {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;	
+	margin-bottom: 5%;
+}
+
+#nom {
+	font-size: 30px;
+	letter-spacing: 5px;
+	margin-bottom: 7%;
+}
+
+#description {
+	text-align: justify;
+	font-size: 17px;
+}
+
+.icone {
+	padding-bottom: 2%;
+}
+
+.infos {
+	margin-bottom: 32%;
+	letter-spacing: 4px;
+	font-size: 14px;
+}
+
+.titreSection {
+	border-bottom: 1px solid black;
+	letter-spacing: 5px;
+	padding-bottom: 5px;
+	margin-top: 9%;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.contenu, .contenuEducation, .contenuLanguesInfo, #contenuInterets {
+	padding-left: 1%;
+	margin-top: 5%;
+}
+
+.bullet {
+	margin-right: 2%;
+}
+
+.titreContenu {
+	font-weight: bold;
+	margin-bottom: 2px;
+}
+
+.precisionContenu {
+	font-style:italic;
+	margin-bottom: 2px;
+}
+
+#titreLangues {
+	margin-right: 32%;
+}
+
+.contenuEducation {
+	display: inline-block;
+	margin-right: 2.5%;
+}
+
+
+.languesInfoInterets {
+	display: inline-block;
+	margin-bottom: 10%;
+}
+
+.contenuLanguesInfo {
+	display: inline-block;
+	vertical-align: text-top;
+}
+
+.tiret {
+	margin: 0px 5px 0px 5px;
+}
+
+#langues {
+	margin-right: 30%;
+}
