@@ -1,8 +1,7 @@
 body {
-	padding: 0px;
-	margin: 0px;
-	height: auto;
-	min-height: 100%
+	padding: 0;
+	margin: 0;
+	height: 100%;
 	font-family: arial, sans serif;
 }
 
@@ -12,38 +11,91 @@ header {
 	text-align: center;
 }
 
-
+/* Premier niveau */
 #menu, #menu ul {
-	padding: 0px;
-	margin: 0px;
+	padding: 0;
+	margin: 0;
 	list-style: none;
+	white-space: nowrap;
 }
 
 #menu li {
 	display: inline-block;
+	position: relative;
+	vertical-align: top;
+}
+
+#menu a {
+	display: block;
+	padding: 5px 25px;
+	text-decoration: none;
+	color: #000000;
+}
+
+/* deuxieme niveau */
+#menu ul {
+	position: absolute;
+	z-index: 1000;
+	min-width: 100%;
 }
 
 #menu ul li {
 	display: inherit;
-}
-
-#menu a {
-	text-decoration: none;
-	display: block;
-	padding: 5px 25px;
-	color: #000000
-}
-
-#menu ul {
-	position: absolute;
-	max-height: 0;
 	overflow: hidden;
-	text-align: left;
-	z-index: 10;
+	max-height: 0;
+	transition: all 0.8s;
 }
 
-#menu li:hover ul {
+#menu ul li a {
+  padding: 5px 5px;
+}
+
+#menu li:hover li {
 	max-height: 15em;
+	overflow: visible;
+}
+
+/* troisieme niveau */
+#menu ul ul {
+	left: 100%;
+	top: 0;
+	overflow: hidden;
+	max-height: 0;
+	transition: 0.4s all;
+}
+
+#menu ul li:hover ul {
+  overflow: visible;
+  max-height: 30em;
+  background-color: gray;
+}
+
+#menu ul ul li {
+	max-height: inherit
+}
+
+.thumbnails {
+	border: solid 1px;
+}
+
+.thumbnails img {
+	border: solid 2px;
+	width: 50px;
+	height: 50px;
+}
+
+.flottante {
+	border: solid 3px;
+	float: left;
+	margin-left: 5px;
+	margin-right: 20px;
+	border: solid;
+	max-height: 480px;
+	max-width: 720px;
+}
+
+.description {
+	margin-right: 10px;
 }
 
 footer {
@@ -55,6 +107,7 @@ footer {
 	position: absolute;
 	left: 0;
 	bottom: 0;
+	clear: both;
 }
 
 #copyright {
