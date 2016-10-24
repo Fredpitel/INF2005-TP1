@@ -15,9 +15,10 @@ aside {
 
 section {
 	float: left;
-	padding-left: 1%;
+	padding: 0% 2% 0% 1%;
 	width: 32%;
 	font-size: 15px;
+	position: relative;
 }
 
 #portrait {
@@ -102,4 +103,11 @@ section {
 
 #langues {
 	margin-right: 30%;
+}
+
+#banniere {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	opacity: 0.9;
 }
