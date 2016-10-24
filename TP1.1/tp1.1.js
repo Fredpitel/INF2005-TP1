@@ -64,7 +64,6 @@ function ajouterItem(idElements) {
 		}
 		
 		mettrePanierAJour();
-		document.getElementById(elements[0]).value = 0;
 	} else {
 		document.getElementById(elements[0]).style.borderColor = "red";
 	}
@@ -74,6 +73,7 @@ function resetTextAreas(){
 	var textAreas = document.getElementsByClassName("nbItem");
 	
 	for(var i = 0; i < textAreas.length; i++){
+		textAreas[i].value = 0;
 		textAreas[i].style.border = "";
 	}
 }

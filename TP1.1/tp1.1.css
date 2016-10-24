@@ -221,6 +221,7 @@ h3 {
 .boutonPanier {
 	font-size: 20px;
 	width: 90%;
+	text-shadow:-0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000;
 }
 
 #boutonCommander {
@@ -269,8 +270,13 @@ h3 {
 	text-align: center;
 }
 
-#pizza td:first-child, #tableCondiments {
+#tableCondiments {
 	text-align: left;
+}
+
+#pizza td:first-child {
+	text-align: left;
+	border-bottom: 1px solid black;
 }
 
 #tableFormulaire{
