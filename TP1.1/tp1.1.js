@@ -155,9 +155,10 @@ function modifierSousTotal() {
 	sousTotal = 0.00;
 	
 	for(var i = 0; i < itemsPanier.length; i++){
+		console.log(itemsPanier[i].prix);
 		sousTotal += itemsPanier[i].prix;
 	}
-	document.getElementById("sousTotal").innerHTML = sousTotal.toFixed(2) + " $";
+	document.getElementById("sousTotal").innerHTML = parseFloat(sousTotal).toFixed(2) + " $";
 	
 	modififerTaxes();
 }
