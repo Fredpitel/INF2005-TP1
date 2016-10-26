@@ -173,7 +173,7 @@
 	    	</div>
 	    	
 	    	<div id="sectionFormulaire">
-		    	<form id="formulaire">
+		    	<form id="formulaire" onsubmit="afficherItineraire(); return false">
 		    		<h2>Informations du client</h2>
 		    		<table id="tableFormulaire">
 			    		<tr>
@@ -203,7 +203,7 @@
 						<tr>
 							<td></td>
 							<td></td>
-							<td><input class="bouton" type="button" onclick="afficherItineraire()" value="Confirmer"/></td>
+							<td><input class="bouton" type="submit" value="Confirmer"/></td>
 						</tr>
 		  			</table>
 		    	</form>	

@@ -152,18 +152,17 @@ function supprimerItem(item){
 }
 
 function modifierSousTotal() {
-	sousTotal = 0.00;
+	var sousTotal = 0.00;
 	
 	for(var i = 0; i < itemsPanier.length; i++){
-		console.log(itemsPanier[i].prix);
-		sousTotal += itemsPanier[i].prix;
+		sousTotal += parseFloat(itemsPanier[i].prix);
 	}
 	document.getElementById("sousTotal").innerHTML = parseFloat(sousTotal).toFixed(2) + " $";
 	
-	modififerTaxes();
+	modififerTaxes(sousTotal);
 }
 
-function modififerTaxes(){
+function modififerTaxes(sousTotal){
 	var tps = parseFloat(Math.round(sousTotal * 0.05 * 100) / 100).toFixed(2);
 	var tvq = parseFloat(Math.round(sousTotal * 0.09975 * 100) / 100).toFixed(2);
 	var total = parseFloat(sousTotal) + parseFloat(tps) + parseFloat(tvq);
