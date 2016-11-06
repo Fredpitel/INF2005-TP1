@@ -4,13 +4,10 @@ body {
 	margin: 0;
 }
 
-#conteneur {
-	display: inline-flex;
-}
-
 aside {
 	width: 12%;
-	float: left;
+	float: left ;
+	height: 100%;
 	background: #3B393A;
 	color: white;
 	padding: 2% 2% 0% 2%;
