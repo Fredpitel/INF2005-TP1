@@ -22,8 +22,13 @@ header h1 {
 	color: #FFF;
 }
 
+#menu {
+	margin-left: 80px;
+	margin-top: 40px;
+}
+
 /* Premier niveau */
-#menu, #menu ul {
+#menu ul {
 	padding: 0;
 	margin: 0;
 	list-style: none;
@@ -38,15 +43,33 @@ header h1 {
 
 #menu a {
 	display: block;
-	padding: 5px 25px;
+	padding: 15px 40px;
 	text-decoration: none;
-	color: #000000;
+	color: #EEE;
+	background-color: #222;
+	border: solid 1px;
+
+}
+
+#menu > li:hover > a {
+	background-color: #000;
+	transition: 0.4s all
+}
+
+#menu ul > li:hover > a {
+	background-color: #000;
+	transition: 0.4s all
+}
+
+#menu > li >a {
+	color: #EEE;
+	font-size: 125%
 }
 
 /* deuxieme niveau */
 #menu ul {
 	position: absolute;
-	z-index: 1000;
+	z-index: 10;
 	min-width: 100%;
 }
 
@@ -54,11 +77,15 @@ header h1 {
 	display: inherit;
 	overflow: hidden;
 	max-height: 0;
-	transition: all 0.8s;
+	transition: all 0.4s;
+	padding: 0;
+	margin: 0;
+	border: inherit;
+	background-color:inherit;
 }
 
 #menu ul li a {
-  padding: 5px 5px;
+	padding: 10px 15px;
 }
 
 #menu li:hover li {
@@ -72,27 +99,39 @@ header h1 {
 	top: 0;
 	overflow: hidden;
 	max-height: 0;
-	transition: 0.4s all;
 }
 
 #menu ul li:hover ul {
   overflow: visible;
   max-height: 30em;
-  background-color: gray;
 }
 
 #menu ul ul li {
 	max-height: inherit
+	border: inherit;
+}
+
+#menu ul ul li a {
+	border: none;
+	padding: 0;
 }
 
 .thumbnails {
+	color: #FFF;
 	border: solid 1px;
+	padding: 3px;
+	background-color: #000;
+}
+
+.thumbnails td {
+	padding: 3px;
+	margin:0;
 }
 
 .thumbnails img {
-	border: solid 2px;
-	width: 50px;
-	height: 50px;
+	width: 80px;
+	height: 80px;
+	vertical-align: bottom;
 }
 
 .flottante {
