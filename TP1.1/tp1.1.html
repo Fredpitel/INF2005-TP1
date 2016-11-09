@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<script src="tp1.1.js"></script>
     <head>
         <meta charset="utf-8"/>
+		<script src="tp1.1.js"></script>
         <link rel="stylesheet" href="tp1.1.css">
         <title>Snack-bar chez Raymond</title>
     </head>
@@ -14,7 +13,7 @@
     	
     	<aside id="asideLeft">
     		<div id="coordonnees">
-	    		<img id="imageSnackBar" src="snackbar.jpg"><br><br>
+	    		<img id="imageSnackBar" src="snackbar.jpg" alt="img"><br><br>
 	    		
 	    		<div id="blocCoordonnees">
 		    		<h3>Coordonnées:</h3>
@@ -98,16 +97,16 @@
 						<div class="garniture">Aux fruits de mers</div>
 						<label>19.99 $</label>
 						<input id="sauceLinFruitDeMer" name="radio3" type="radio" label="Linguini aux fruits de mer" prix="19.99"><br>
-						<input class="boutonPates" type="button" value="Ajouter" onclick="ajouterItem('nbLin,sauceLinRosee,sauceLinFruitDeMer')"/></br>					
+						<input class="boutonPates" type="button" value="Ajouter" onclick="ajouterItem('nbLin,sauceLinRosee,sauceLinFruitDeMer')"/><br>					
 				 	</div><br>
 	
 	    			<h3>PIZZA</h3>
 					<table id="pizza">
 						<tr>
-							<th></th><th>Personnelle</th><th>Petite</th><th>Moyenne</th><th>Large</th><th>Extra-large</th><th></th>
+							<th></th><th>Personnelle</th><th>Petite</th><th>Moyenne</th><th>Large</th><th>Extra-large</th><th></th><th></th><th></th><th></th><th></th><th></th>
 						</tr>
 						<tr>
-							<th></th><th>10po</th><th>12po</th><th>14po</th><th>16po</th><th>18po</th><th></th>
+							<th></th><th>10po</th><th>12po</th><th>14po</th><th>16po</th><th>18po</th><th></th><th></th><th></th><th></th><th></th><th></th>
 						</tr>
 						<tr>
 							<td>Pepperoni et fromage</td>
@@ -199,16 +198,19 @@
 						<tr>
 							<td>Numéro de téléphone:</td>
 			  				<td><input id="telephone" class="textInput" type="text" required/></td>
+							<td></td>
+							<td></td>
 						</tr>
 						<tr>
 							<td></td>
 							<td></td>
 							<td><input class="bouton" type="submit" value="Confirmer"/></td>
+							<td></td>
 						</tr>
 		  			</table>
 		    	</form>	
 		    	<h2 id="itineraire">Itinéraire:</h2>
-				<iframe id="carte" src=""></iframe>
+				<iframe id="carte" src="about:blank"></iframe>
 	    	</div>
     	</section>
     	
