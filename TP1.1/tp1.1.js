@@ -1,3 +1,7 @@
+/*
+Francis Beaudoin, BEAF21069107
+Frédéric Pitel, PITF16088608
+*/
 var itemsPanier = [];
 
 function ajouterItem(idElements) {
