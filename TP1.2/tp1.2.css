@@ -146,7 +146,8 @@ header h1 {
 
 .control {
 	text-align: center;
-	position: absolute;
+	position: fixed;
+	display: table;
 	clear: both;
 	left: 0;
 	bottom: 50px;
@@ -167,7 +168,7 @@ footer {
     background: #212121;
     display: table;
     text-align: center; 
-	position: absolute;
+	position: fixed;
 	left: 0;
 	bottom: 0;
 	clear: both;
